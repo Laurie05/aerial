@@ -122,6 +122,21 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      {/* Disclaimer */}
+      <section className="mb-10">
+        <div className="bg-white border border-purple-100 rounded-xl p-5 shadow-sm">
+          <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
+            Disclaimer
+          </h2>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            Aerial arts are inherently dangerous. The information on this site is
+            intended to supplement &mdash; not replace &mdash; professional
+            instruction. Always train under the guidance of a qualified instructor,
+            use properly rated and inspected equipment, and practice safely at all
+            times.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

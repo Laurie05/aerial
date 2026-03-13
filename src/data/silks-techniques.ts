@@ -51,7 +51,7 @@ export const silksTechniques: Technique[] = [
       "Pedal each leg alternately through the silks",
       "Stand on each wrap as you go",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_bicycle_climb",
+    videoUrl: "https://www.youtube.com/watch?v=-_JchXiOleM",
   },
   {
     id: "straddle-climb",
@@ -68,7 +68,7 @@ export const silksTechniques: Technique[] = [
       "Squeeze legs and stand up",
       "Re-reach and repeat",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_straddle_climb",
+    videoUrl: "https://www.youtube.com/shorts/A_xaAs93cZ0",
   },
   {
     id: "sissone-climb",
@@ -84,7 +84,7 @@ export const silksTechniques: Technique[] = [
       "Scissor legs through the silks",
       "Use momentum from the scissor to gain height",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_sissone_climb",
+    videoUrl: "https://www.youtube.com/watch?v=KOLDUxRrb3g",
   },
   {
     id: "russian-flirt",
@@ -100,7 +100,7 @@ export const silksTechniques: Technique[] = [
       "Extend the free leg out with pointed toe",
       "Re-wrap and continue climbing",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_russian_flirt",
+    videoUrl: "https://www.youtube.com/watch?v=-UgTmgPlK9U",
   },
   {
     id: "hipkey-climb",
@@ -137,7 +137,7 @@ export const silksTechniques: Technique[] = [
       "Under the arch and around",
       "Step down to lock",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_figure_eight_single_footlock",
+    videoUrl: "https://www.youtube.com/watch?v=y5iU6ugIla4",
   },
   {
     id: "figure-eight-double-footlock",
@@ -154,7 +154,7 @@ export const silksTechniques: Technique[] = [
       "Stand evenly on both feet",
       "Engage core for balance",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_figure_eight_double_footlock",
+    videoUrl: "https://www.youtube.com/watch?v=y5iU6ugIla4",
   },
   {
     id: "dancer-footlock",
@@ -170,7 +170,7 @@ export const silksTechniques: Technique[] = [
       "Wrap around the ankle with a dancer's line",
       "Secure by flexing the foot",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_dancer_footlock",
+    videoUrl: "https://www.youtube.com/watch?v=d-9Eq6E1SJQ",
   },
   {
     id: "double-ankle-hang",
@@ -187,7 +187,7 @@ export const silksTechniques: Technique[] = [
       "Keep core engaged",
       "Arms extend down for balance",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_double_ankle_hang",
+    videoUrl: "https://www.youtube.com/watch?v=6_yLoEbutuE",
   },
 
   // =============================================
@@ -208,7 +208,7 @@ export const silksTechniques: Technique[] = [
       "Hook knees or straight legs through",
       "Control the flip with arm strength",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_inversion",
+    videoUrl: "https://www.youtube.com/watch?v=YwpgdZGDkh0",
   },
   {
     id: "same-side-hook",
@@ -259,7 +259,7 @@ export const silksTechniques: Technique[] = [
       "Release legs to hang",
       "Requires significant upper body strength",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_meathook",
+    videoUrl: "https://www.youtube.com/shorts/tythfwbmUWI",
   },
 
   // =============================================
@@ -297,7 +297,7 @@ export const silksTechniques: Technique[] = [
       "Sit into the wrap",
       "The silk should cross at your hip",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_hip_key",
+    videoUrl: "https://www.youtube.com/watch?v=ZNUguFnczBw",
   },
   {
     id: "z-wrap",
@@ -314,7 +314,7 @@ export const silksTechniques: Technique[] = [
       "Secure by sitting into the wrap",
       "Check that all layers are flat",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_z_wrap",
+    videoUrl: "https://www.youtube.com/shorts/JROqgRlK8sY",
   },
   {
     id: "thigh-hitch",
@@ -330,7 +330,7 @@ export const silksTechniques: Technique[] = [
       "From inside to outside",
       "Secure by sitting into the wrap",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_thigh_hitch",
+    videoUrl: "https://www.youtube.com/watch?v=Uz7e-MEeoHY",
   },
   {
     id: "s-wrap-closed",
@@ -347,7 +347,7 @@ export const silksTechniques: Technique[] = [
       "Around the back keeping silks together",
       "The silk creates an S-shape around your body",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_s_wrap_closed",
+    videoUrl: "https://www.youtube.com/watch?v=DRr-h557YeI",
   },
   {
     id: "s-wrap-open",
@@ -364,7 +364,7 @@ export const silksTechniques: Technique[] = [
       "The other silk wraps differently",
       "Creates an open S-shape",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_s_wrap_open",
+    videoUrl: "https://www.youtube.com/watch?v=DRr-h557YeI",
   },
   {
     id: "belly-wrap",
@@ -397,7 +397,7 @@ export const silksTechniques: Technique[] = [
       "Arms extend forward",
       "Engage back muscles to hold position",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_front_balance",
+    videoUrl: "https://www.youtube.com/shorts/7ieWiEb4iKQ",
   },
   {
     id: "back-balance",
@@ -414,7 +414,7 @@ export const silksTechniques: Technique[] = [
       "Arms extend to the sides",
       "Engage core to maintain position",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_back_balance",
+    videoUrl: "https://www.youtube.com/watch?v=g6ASORPnPSY",
   },
   {
     id: "cocoon",
@@ -431,7 +431,7 @@ export const silksTechniques: Technique[] = [
       "Control the spin speed",
       "To exit, spin the opposite direction",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_cocoon",
+    videoUrl: "https://www.youtube.com/shorts/OPGd2FUNtn8",
   },
   {
     id: "split-silk",
@@ -465,7 +465,7 @@ export const silksTechniques: Technique[] = [
       "Silk supports under the thighs",
       "Explore different shapes and arm positions",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_swing_seat",
+    videoUrl: "https://www.youtube.com/watch?v=yd8OHY01HXM",
   },
 
   // =============================================
