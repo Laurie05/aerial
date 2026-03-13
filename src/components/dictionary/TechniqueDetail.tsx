@@ -29,10 +29,10 @@ function getYouTubeEmbedUrl(url: string): string | null {
 }
 
 const difficultyColors = {
-  beginner: "text-green-600",
-  intermediate: "text-amber-600",
-  advanced: "text-orange-600",
-  elite: "text-red-600",
+  beginner: "text-teal-600",
+  intermediate: "text-sky-600",
+  advanced: "text-indigo-600",
+  elite: "text-purple-600",
 };
 
 export function TechniqueDetail({

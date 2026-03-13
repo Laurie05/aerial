@@ -13,7 +13,7 @@ const StudioMap = dynamic(() => import("@/components/map/StudioMap"), {
 
 export default function MapPage() {
   return (
-    <div className="h-[calc(100vh-7.5rem)]">
+    <div className="h-full">
       <StudioMap />
     </div>
   );

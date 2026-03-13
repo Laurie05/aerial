@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   ReactFlow,
@@ -11,6 +11,8 @@ import {
   NodeMouseHandler,
   useNodesState,
   useEdgesState,
+  useReactFlow,
+  ReactFlowProvider,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
@@ -103,12 +105,12 @@ function buildFlowElements(
       labelBgStyle: { fill: "#ffffff", fillOpacity: 0.9 },
       style: {
         stroke: isOutgoing
-          ? "#d946ef"
+          ? "#7c3aed"
           : isIncoming
-          ? "#a855f7"
+          ? "#8b5cf6"
           : isHighlighted
-          ? "#9ca3af"
-          : "#e5e7eb",
+          ? "#c4b5fd"
+          : "#e9e5f5",
         strokeWidth: isHighlighted ? 2 : 1,
         opacity: isHighlighted ? 1 : 0.2,
       },
@@ -118,13 +120,14 @@ function buildFlowElements(
   return getLayoutedElements(nodes, edges, "LR");
 }
 
-export function SequenceFlow() {
+function SequenceFlowInner() {
   const { apparatus } = useApparatus();
   const searchParams = useSearchParams();
   const initialHighlight = searchParams.get("highlight");
   const [highlightId, setHighlightId] = useState<string | null>(
     initialHighlight
   );
+  const { fitView } = useReactFlow();
 
   const { nodes: layoutedNodes, edges: layoutedEdges } = useMemo(
     () => buildFlowElements(apparatus, highlightId),
@@ -139,6 +142,12 @@ export function SequenceFlow() {
     setEdges(layoutedEdges);
   }, [layoutedNodes, layoutedEdges, setNodes, setEdges]);
 
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      fitView({ padding: 0.2, duration: 300 });
+    });
+  }, [layoutedNodes, layoutedEdges, fitView]);
+
   const onNodeClick: NodeMouseHandler = useCallback((_event, node) => {
     setHighlightId((prev) => (prev === node.id ? null : node.id));
   }, []);
@@ -146,23 +155,23 @@ export function SequenceFlow() {
   return (
     <div className="w-full h-full relative">
       {/* Legend */}
-      <div className="absolute top-4 left-4 z-10 bg-white/90 border border-purple-100 rounded-lg p-3 backdrop-blur-sm shadow-sm">
-        <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wide">
+      <div className="absolute top-4 left-4 z-10 bg-white/90 border border-purple-100 rounded-lg px-4 py-3 backdrop-blur-sm shadow-sm text-center">
+        <p className={`text-sm text-gray-500 font-semibold ${highlightId ? "mb-2" : ""}`}>
           Click a technique to explore
         </p>
         {highlightId && (
           <>
             <div className="flex items-center gap-2 mb-1">
-              <div className="w-3 h-0.5 bg-silk-500" />
+              <div className="w-3 h-0.5 bg-purple-600" />
               <span className="text-xs text-gray-500">Can do next</span>
             </div>
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-3 h-0.5 bg-aerial-500" />
+              <div className="w-3 h-0.5 bg-violet-400" />
               <span className="text-xs text-gray-500">Can come from</span>
             </div>
             <button
               onClick={() => setHighlightId(null)}
-              className="text-xs text-silk-500 hover:text-silk-700"
+              className="text-xs text-purple-600 hover:text-purple-800"
             >
               Clear selection
             </button>
@@ -182,9 +191,17 @@ export function SequenceFlow() {
         minZoom={0.2}
         maxZoom={2}
       >
-        <Background color="#e5e7eb" gap={20} />
+        <Background color="#ede9fe" gap={20} />
         <Controls />
       </ReactFlow>
     </div>
+  );
+}
+
+export function SequenceFlow() {
+  return (
+    <ReactFlowProvider>
+      <SequenceFlowInner />
+    </ReactFlowProvider>
   );
 }

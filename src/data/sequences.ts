@@ -119,7 +119,8 @@ export const sequenceEdges: SequenceEdge[] = [
   { from: "lyra-gazelle", to: "lyra-meathook" },
 
   // === ROPE SEQUENCES ===
-  { from: "rope-hip-key", to: "rope-s-wrap" },
+  // Rope shares silks sequences (techniques have apparatus: ["silks", "rope"])
+  // excluding split-silk moves. No additional rope-specific edges needed.
 ];
 
 // Example saved sequences to show in the UI

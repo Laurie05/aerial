@@ -114,7 +114,6 @@ export const progressionEdges: ProgressionEdge[] = [
   { from: "lyra-gazelle", to: "lyra-meathook" },
 
   // === ROPE PROGRESSIONS ===
-  { from: "french-climb", to: "rope-hip-key" },
-  { from: "russian-climb", to: "rope-hip-key" },
-  { from: "rope-hip-key", to: "rope-s-wrap" },
+  // Rope shares silks progressions (techniques have apparatus: ["silks", "rope"])
+  // excluding split-silk moves. No additional rope-specific edges needed.
 ];

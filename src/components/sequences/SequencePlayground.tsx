@@ -8,10 +8,10 @@ import { useApparatus } from "@/components/ApparatusContext";
 const techMap = new Map(techniques.map((t) => [t.id, t]));
 
 const difficultyColors: Record<string, string> = {
-  beginner: "border-green-300 bg-green-50",
-  intermediate: "border-amber-300 bg-amber-50",
-  advanced: "border-orange-300 bg-orange-50",
-  elite: "border-red-300 bg-red-50",
+  beginner: "border-teal-300 bg-teal-50",
+  intermediate: "border-sky-300 bg-sky-50",
+  advanced: "border-indigo-300 bg-indigo-50",
+  elite: "border-purple-300 bg-purple-50",
 };
 
 export function SequencePlayground() {
@@ -96,7 +96,7 @@ export function SequencePlayground() {
   return (
     <div className="h-full flex">
       {/* Main playground area */}
-      <div className="flex-1 flex flex-col p-6 overflow-y-auto">
+      <div className="flex-1 flex flex-col p-6 min-h-0 overflow-y-auto">
         <h2 className="text-lg font-bold text-gray-800 mb-4">
           Build Your Sequence
         </h2>
@@ -116,7 +116,7 @@ export function SequencePlayground() {
                   <div key={`${id}-${i}`} className="flex items-center gap-2">
                     {i > 0 && (
                       <svg
-                        className="w-4 h-4 text-silk-500 shrink-0"
+                        className="w-4 h-4 text-purple-500 shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -144,7 +144,7 @@ export function SequencePlayground() {
         </div>
 
         {/* Actions */}
-        <div className="flex gap-3 mb-6">
+        <div className="flex flex-wrap gap-3 mb-8">
           <button
             onClick={removeLastFromSequence}
             disabled={sequence.length === 0}
@@ -165,19 +165,19 @@ export function SequencePlayground() {
             placeholder="Sequence name..."
             value={sequenceName}
             onChange={(e) => setSequenceName(e.target.value)}
-            className="px-3 py-1.5 text-sm bg-white border border-purple-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:border-silk-500"
+            className="px-3 py-1.5 text-sm bg-white border border-purple-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:border-purple-500"
           />
           <button
             onClick={saveSequence}
             disabled={sequence.length < 2}
-            className="px-4 py-1.5 text-sm bg-silk-600 text-white rounded-lg hover:bg-silk-500 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            className="px-4 py-1.5 text-sm bg-purple-600 text-white rounded-lg hover:bg-purple-500 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           >
             Save Sequence
           </button>
         </div>
 
         {/* Available next moves */}
-        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+        <h3 className="text-sm font-semibold text-gray-700 mb-3">
           {sequence.length === 0 ? "Pick a starting technique" : "Available next moves"}
         </h3>
 
@@ -187,7 +187,7 @@ export function SequencePlayground() {
             fresh!
           </p>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 pb-6">
             {validNextMoves.map((tech) => (
               <button
                 key={tech.id}
@@ -218,7 +218,7 @@ export function SequencePlayground() {
             <button
               key={seq.id}
               onClick={() => loadSequence(seq.techniqueIds)}
-              className="w-full text-left p-3 rounded-lg bg-white border border-purple-100 hover:border-silk-400 transition-colors shadow-sm"
+              className="w-full text-left p-3 rounded-lg bg-white border border-purple-100 hover:border-purple-400 transition-colors shadow-sm"
             >
               <div className="text-sm font-medium text-gray-800">
                 {seq.name}
@@ -253,7 +253,7 @@ export function SequencePlayground() {
                     <div className="flex items-center justify-between">
                       <button
                         onClick={() => loadSequence(seq.techniqueIds)}
-                        className="text-sm font-medium text-gray-800 hover:text-silk-600"
+                        className="text-sm font-medium text-gray-800 hover:text-purple-600"
                       >
                         {seq.name}
                       </button>

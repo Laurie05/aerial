@@ -43,7 +43,9 @@ export interface Studio {
   city: string;
   country: string;
   website?: string;
-  types: ("silks" | "trapeze" | "lyra" | "rope" | "hammock")[];
+  address?: string;
+  ceilingHeight?: string;
+  types: ("silks" | "trapeze" | "lyra" | "rope" | "hammock" | "straps" | "pole" | "handstand" | "acrobatics" | "spanish-web" | "flying-trapeze")[];
 }
 
 export interface UserProgress {

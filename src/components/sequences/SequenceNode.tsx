@@ -19,19 +19,19 @@ export function SequenceNode({ data }: NodeProps) {
   };
 
   const borderColor = isSelected
-    ? "border-silk-500"
+    ? "border-purple-600"
     : isOutgoing
-    ? "border-silk-400"
+    ? "border-purple-400"
     : isIncoming
-    ? "border-aerial-400"
-    : "border-gray-200";
+    ? "border-violet-400"
+    : "border-purple-200";
 
   const bgColor = isSelected
-    ? "bg-silk-50"
-    : isOutgoing
-    ? "bg-pink-50"
-    : isIncoming
     ? "bg-purple-50"
+    : isOutgoing
+    ? "bg-purple-50/60"
+    : isIncoming
+    ? "bg-violet-50/60"
     : "bg-white";
 
   return (
@@ -41,7 +41,7 @@ export function SequenceNode({ data }: NodeProps) {
         className={`px-4 py-2 rounded-lg border-2 text-center min-w-[130px] transition-all cursor-pointer shadow-sm
           ${borderColor} ${bgColor}
           ${!isHighlighted ? "opacity-20" : ""}
-          ${isSelected ? "ring-2 ring-silk-400 ring-offset-2 ring-offset-white scale-110" : ""}
+          ${isSelected ? "ring-2 ring-purple-400 ring-offset-2 ring-offset-white scale-110" : ""}
           hover:scale-105
         `}
       >

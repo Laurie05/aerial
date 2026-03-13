@@ -17,7 +17,7 @@ export function Header() {
   const { apparatus, setApparatus } = useApparatus();
 
   return (
-    <header className="border-b border-purple-100 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+    <header className="border-b border-purple-100 bg-white/80 backdrop-blur-sm shrink-0">
       <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image src={iconImg} alt="Aerial Atlas" width={32} height={32} className="rounded" />
@@ -42,10 +42,6 @@ export function Header() {
             </button>
           ))}
         </div>
-
-        <button className="text-sm text-gray-500 hover:text-gray-700 border border-purple-200 rounded-lg px-3 py-1.5 hover:border-purple-400 transition-colors">
-          Sign In
-        </button>
       </div>
     </header>
   );

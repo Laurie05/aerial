@@ -5,7 +5,7 @@ import { ProgressionFlow } from "@/components/progressions/ProgressionFlow";
 
 export default function ProgressionsPage() {
   return (
-    <div className="h-[calc(100vh-7.5rem)]">
+    <div className="h-full">
       <Suspense
         fallback={
           <div className="flex items-center justify-center h-full text-gray-500">

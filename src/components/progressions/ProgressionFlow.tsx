@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   ReactFlow,
@@ -12,6 +12,8 @@ import {
   NodeMouseHandler,
   useNodesState,
   useEdgesState,
+  useReactFlow,
+  ReactFlowProvider,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
@@ -23,10 +25,10 @@ import { useApparatus } from "@/components/ApparatusContext";
 import { Apparatus } from "@/types";
 
 const difficultyColor: Record<string, string> = {
-  beginner: "#16a34a",
-  intermediate: "#d97706",
-  advanced: "#ea580c",
-  elite: "#dc2626",
+  beginner: "#2dd4bf",
+  intermediate: "#38bdf8",
+  advanced: "#818cf8",
+  elite: "#a855f7",
 };
 
 const nodeTypes = { technique: TechniqueNode };
@@ -98,13 +100,14 @@ function buildFlowElements(
   return getLayoutedElements(nodes, edges, "TB");
 }
 
-export function ProgressionFlow() {
+function ProgressionFlowInner() {
   const { apparatus } = useApparatus();
   const searchParams = useSearchParams();
   const initialHighlight = searchParams.get("highlight");
   const [highlightId, setHighlightId] = useState<string | null>(
     initialHighlight
   );
+  const { fitView } = useReactFlow();
 
   const { nodes: layoutedNodes, edges: layoutedEdges } = useMemo(
     () => buildFlowElements(apparatus, highlightId),
@@ -118,6 +121,12 @@ export function ProgressionFlow() {
     setNodes(layoutedNodes);
     setEdges(layoutedEdges);
   }, [layoutedNodes, layoutedEdges, setNodes, setEdges]);
+
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      fitView({ padding: 0.2, duration: 300 });
+    });
+  }, [layoutedNodes, layoutedEdges, fitView]);
 
   const onNodeClick: NodeMouseHandler = useCallback((_event, node) => {
     setHighlightId((prev) => (prev === node.id ? null : node.id));
@@ -144,7 +153,7 @@ export function ProgressionFlow() {
         {highlightId && (
           <button
             onClick={() => setHighlightId(null)}
-            className="mt-3 text-xs text-aerial-500 hover:text-aerial-700"
+            className="mt-3 text-xs text-purple-600 hover:text-purple-800"
           >
             Clear highlight
           </button>
@@ -164,7 +173,7 @@ export function ProgressionFlow() {
         maxZoom={2}
         style={{ background: "#fafafa" }}
       >
-        <Background color="#e5e7eb" gap={20} />
+        <Background color="#ede9fe" gap={20} />
         <Controls />
         <MiniMap
           nodeColor={(node) =>
@@ -173,5 +182,13 @@ export function ProgressionFlow() {
         />
       </ReactFlow>
     </div>
+  );
+}
+
+export function ProgressionFlow() {
+  return (
+    <ReactFlowProvider>
+      <ProgressionFlowInner />
+    </ReactFlowProvider>
   );
 }

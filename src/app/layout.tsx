@@ -3,6 +3,7 @@ import "./globals.css";
 import { TabNav } from "@/components/layout/TabNav";
 import { Header } from "@/components/layout/Header";
 import { ApparatusProvider } from "@/components/ApparatusContext";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Aerial Atlas",
@@ -31,12 +32,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
+      <body className="bg-gray-50 text-gray-900 h-screen flex flex-col overflow-hidden">
         <ApparatusProvider>
           <Header />
           <TabNav />
-          <main className="flex-1 overflow-hidden">{children}</main>
+          <main className="flex-1 overflow-auto min-h-0">{children}</main>
         </ApparatusProvider>
+        <Analytics />
       </body>
     </html>
   );

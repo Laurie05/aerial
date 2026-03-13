@@ -8,7 +8,7 @@ export const silksTechniques: Technique[] = [
     id: "french-climb",
     name: "French Climb",
     aliases: ["basic climb", "standard climb"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "climbs",
     difficulty: "beginner",
     description:
@@ -25,7 +25,7 @@ export const silksTechniques: Technique[] = [
     id: "russian-climb",
     name: "Russian Climb",
     aliases: ["rope climb"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "climbs",
     difficulty: "intermediate",
     description:
@@ -57,7 +57,7 @@ export const silksTechniques: Technique[] = [
     id: "straddle-climb",
     name: "Straddle Climb",
     aliases: ["star climb"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "climbs",
     difficulty: "intermediate",
     description:
@@ -74,7 +74,7 @@ export const silksTechniques: Technique[] = [
     id: "sissone-climb",
     name: "Sissone Climb",
     aliases: ["scissor climb"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "climbs",
     difficulty: "advanced",
     description:
@@ -90,7 +90,7 @@ export const silksTechniques: Technique[] = [
     id: "russian-flirt",
     name: "Russian Flirt",
     aliases: ["flirt climb"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "climbs",
     difficulty: "advanced",
     description:
@@ -106,7 +106,7 @@ export const silksTechniques: Technique[] = [
     id: "hipkey-climb",
     name: "Hip Key Climb",
     aliases: ["hip key entry climb"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "climbs",
     difficulty: "intermediate",
     description:
@@ -126,7 +126,7 @@ export const silksTechniques: Technique[] = [
     id: "figure-eight-single-footlock",
     name: "Figure Eight Single Foot Lock",
     aliases: ["single foot lock", "figure 8 footlock"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "locks",
     difficulty: "beginner",
     description:
@@ -197,7 +197,7 @@ export const silksTechniques: Technique[] = [
     id: "inversion",
     name: "Inversion",
     aliases: ["basic inversion", "going upside down"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "transitions",
     difficulty: "beginner",
     description:
@@ -214,7 +214,7 @@ export const silksTechniques: Technique[] = [
     id: "same-side-hook",
     name: "Same Side Hook",
     aliases: ["same leg hook"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "entries",
     difficulty: "beginner",
     description:
@@ -231,7 +231,7 @@ export const silksTechniques: Technique[] = [
     id: "opposite-side-hook",
     name: "Opposite Side Hook",
     aliases: ["opposite leg hook", "cross hook"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "entries",
     difficulty: "beginner",
     description:
@@ -248,7 +248,7 @@ export const silksTechniques: Technique[] = [
     id: "meathook",
     name: "Meathook",
     aliases: ["elbow hang"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "entries",
     difficulty: "advanced",
     description:
@@ -269,11 +269,11 @@ export const silksTechniques: Technique[] = [
     id: "catchers-wrap",
     name: "Catchers Wrap",
     aliases: ["catcher", "catchers"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "wraps",
     difficulty: "intermediate",
     description:
-      "A secure wrapped position entered from same-side hook. Foundation for many sequences including tik-tok and s-wrap entries.",
+      "A secure wrapped position entered from same-side hook. Foundation for many sequences including tick tock and s-wrap entries.",
     cues: [
       "From same-side hook, wrap the silk around the thigh",
       "Hook knees securely",
@@ -286,7 +286,7 @@ export const silksTechniques: Technique[] = [
     id: "hip-key",
     name: "Hip Key",
     aliases: ["hip lock", "hiplock"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "wraps",
     difficulty: "beginner",
     description:
@@ -303,7 +303,7 @@ export const silksTechniques: Technique[] = [
     id: "z-wrap",
     name: "Z-Wrap",
     aliases: ["z-lock"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "wraps",
     difficulty: "intermediate",
     description:
@@ -320,7 +320,7 @@ export const silksTechniques: Technique[] = [
     id: "thigh-hitch",
     name: "Thigh Hitch",
     aliases: ["thigh wrap"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "wraps",
     difficulty: "intermediate",
     description:
@@ -336,7 +336,7 @@ export const silksTechniques: Technique[] = [
     id: "s-wrap-closed",
     name: "S-Wrap (Closed)",
     aliases: ["closed s-wrap", "S-lock closed"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "wraps",
     difficulty: "intermediate",
     description:
@@ -370,7 +370,7 @@ export const silksTechniques: Technique[] = [
     id: "belly-wrap",
     name: "Belly Wrap",
     aliases: ["belly roll"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "wraps",
     difficulty: "intermediate",
     description:
@@ -386,7 +386,7 @@ export const silksTechniques: Technique[] = [
     id: "front-balance",
     name: "Front Balance",
     aliases: ["front planche"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "wraps",
     difficulty: "intermediate",
     description:
@@ -403,7 +403,7 @@ export const silksTechniques: Technique[] = [
     id: "back-balance",
     name: "Back Balance",
     aliases: ["back planche"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "wraps",
     difficulty: "intermediate",
     description:
@@ -420,7 +420,7 @@ export const silksTechniques: Technique[] = [
     id: "cocoon",
     name: "Cocoon",
     aliases: ["mummy wrap", "silk cocoon"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "wraps",
     difficulty: "intermediate",
     description:
@@ -472,27 +472,27 @@ export const silksTechniques: Technique[] = [
   // DROPS
   // =============================================
   {
-    id: "tik-tok",
-    name: "Tik Tok",
-    aliases: ["tick tock", "pendulum drop"],
-    apparatus: ["silks"],
-    category: "drops",
-    difficulty: "advanced",
+    id: "tick tock",
+    name: "Tick Tock",
+    aliases: ["pendulum drop"],
+    apparatus: ["silks", "rope"],
+    category: "transitions",
+    difficulty: "intermediate",
     description:
-      "A pendulum-style drop from catchers wrap. Part of the classic catchers → tik-tok → s-wrap sequence.",
+      "A pendulum-style drop from catchers wrap. Part of the classic catchers → tick tock → s-wrap sequence.",
     cues: [
       "Set up in catchers wrap",
       "Build momentum with a swing",
       "Release at the peak of the swing",
       "Control the unwrap with body tension",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_tik_tok",
+    videoUrl: "https://www.youtube.com/watch?v=zWattVHdU0k",
   },
   {
     id: "back-dive",
     name: "Back Dive",
-    aliases: ["back balance drop"],
-    apparatus: ["silks"],
+    aliases: ["back drop"],
+    apparatus: ["silks", "rope"],
     category: "drops",
     difficulty: "advanced",
     description:
@@ -504,13 +504,13 @@ export const silksTechniques: Technique[] = [
       "Keep body tight through the drop",
       "Trust the wrap to catch you",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_back_dive",
+    videoUrl: "https://www.youtube.com/shorts/lTQ5IzNXW4Q",
   },
   {
     id: "star-drop",
     name: "Star Drop",
     aliases: ["star fall"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "drops",
     difficulty: "elite",
     description:
@@ -521,13 +521,13 @@ export const silksTechniques: Technique[] = [
       "Free-fall briefly before the silk catches",
       "Core must be engaged throughout",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_star_drop",
+    videoUrl: "https://www.youtube.com/shorts/O5QNof3qPZU",
   },
   {
     id: "double-star",
     name: "Double Star",
     aliases: ["double star drop"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "drops",
     difficulty: "elite",
     description:
@@ -538,13 +538,13 @@ export const silksTechniques: Technique[] = [
       "Two rotations before catch",
       "Requires precise setup and body tension",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_double_star",
+    videoUrl: "https://www.youtube.com/watch?v=Nfmpa3SePjI",
   },
   {
     id: "wheel-down",
     name: "Wheel Down",
     aliases: ["barrel roll", "rolling descent"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "drops",
     difficulty: "elite",
     description:
@@ -555,13 +555,13 @@ export const silksTechniques: Technique[] = [
       "Maintain body alignment through rotation",
       "Gradual descent rather than free fall",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_wheel_down",
+    videoUrl: "https://www.youtube.com/watch?v=XopcEk6rfPo",
   },
   {
     id: "no-hand-wheel-down",
     name: "No-Hand Wheel Down",
     aliases: ["hands-free wheel down"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "drops",
     difficulty: "elite",
     description:
@@ -572,13 +572,13 @@ export const silksTechniques: Technique[] = [
       "Initiate rotation with body",
       "Trust the extra wrap for security",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_no_hand_wheel_down",
+    videoUrl: "https://www.youtube.com/shorts/FYb2DElCPqs",
   },
   {
     id: "salto",
     name: "Salto",
-    aliases: ["aerial salto", "flip"],
-    apparatus: ["silks"],
+    aliases: ["aerial salto", "360 drop"],
+    apparatus: ["silks", "rope"],
     category: "drops",
     difficulty: "elite",
     description:
@@ -589,13 +589,13 @@ export const silksTechniques: Technique[] = [
       "Maintain silk contact throughout",
       "Land in the next wrapped position",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_salto",
+    videoUrl: "https://www.youtube.com/watch?v=IZyQaP9lJDM",
   },
   {
     id: "infinity-drop",
     name: "Infinity Drop",
     aliases: ["infinity salto"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "drops",
     difficulty: "elite",
     description:
@@ -606,13 +606,13 @@ export const silksTechniques: Technique[] = [
       "The unwrap creates an infinity pattern",
       "Transition into wheel down",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_infinity_drop",
+    videoUrl: "https://www.youtube.com/shorts/bbXAjm6je_A",
   },
   {
     id: "pencil-drop",
     name: "Pencil Drop",
     aliases: ["pencil fall"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "drops",
     difficulty: "advanced",
     description:
@@ -623,7 +623,7 @@ export const silksTechniques: Technique[] = [
       "Release and fall straight down",
       "Silk unwraps to catch you",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_pencil_drop",
+    videoUrl: "https://www.youtube.com/shorts/7EeAQ_sRPRY",
   },
   {
     id: "debele-drop",
@@ -646,7 +646,7 @@ export const silksTechniques: Technique[] = [
     id: "rebecca-split-salto-drop",
     name: "Rebecca Split Salto Drop",
     aliases: ["rebecca salto"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "drops",
     difficulty: "elite",
     description:
@@ -663,7 +663,7 @@ export const silksTechniques: Technique[] = [
     id: "figure-four-drop",
     name: "Figure Four Drop",
     aliases: ["figure 4 drop"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "drops",
     difficulty: "advanced",
     description:
@@ -684,7 +684,7 @@ export const silksTechniques: Technique[] = [
     id: "lasso-entry",
     name: "Lasso Entry",
     aliases: ["lasso"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "entries",
     difficulty: "intermediate",
     description:
@@ -700,7 +700,7 @@ export const silksTechniques: Technique[] = [
     id: "beats-entry",
     name: "Beats Entry",
     aliases: ["beats"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "entries",
     difficulty: "intermediate",
     description:
@@ -716,7 +716,7 @@ export const silksTechniques: Technique[] = [
     id: "back-tuck-entry",
     name: "Back Tuck Entry",
     aliases: ["back tuck to s-wrap"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "entries",
     difficulty: "advanced",
     description:
@@ -731,9 +731,9 @@ export const silksTechniques: Technique[] = [
   },
   {
     id: "rollup-entry",
-    name: "Roll-Up Entry",
+    name: "Donkey Roll Entry",
     aliases: ["roll up to s-wrap"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "entries",
     difficulty: "intermediate",
     description:
@@ -754,7 +754,7 @@ export const silksTechniques: Technique[] = [
     id: "rebecca-split",
     name: "Rebecca Split",
     aliases: ["Rebecca"],
-    apparatus: ["silks"],
+    apparatus: ["silks", "rope"],
     category: "poses",
     difficulty: "advanced",
     description:
@@ -765,7 +765,7 @@ export const silksTechniques: Technique[] = [
       "Back leg wraps for support",
       "Arms reach for drama",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_rebecca_split",
+    videoUrl: "https://www.youtube.com/watch?v=v1AL5IlMjqw",
   },
   {
     id: "gazelle",
@@ -782,7 +782,7 @@ export const silksTechniques: Technique[] = [
       "Reach arms overhead or to the sides",
       "Create a long curved line",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_gazelle",
+    videoUrl: "https://www.youtube.com/watch?v=bz39keOv9_0",
   },
   {
     id: "candy-cane-rollup",
@@ -816,7 +816,7 @@ export const silksTechniques: Technique[] = [
       "Can release hands briefly",
       "Good resting position for recovery",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_belay",
+    videoUrl: "https://www.youtube.com/watch?v=TNO_e7yegF4",
   },
   {
     id: "music-box-rolls",
@@ -850,7 +850,7 @@ export const silksTechniques: Technique[] = [
       "Lean back into the cross",
       "Open legs into a wide straddle",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_crossback_straddle",
+    videoUrl: "https://www.youtube.com/watch?v=Swhmvr3tJhk",
   },
   {
     id: "split-rollup",

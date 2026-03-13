@@ -45,8 +45,8 @@ export default function ProfilePage() {
           Sign In to Track Progress
         </h2>
         <p className="text-gray-400 text-sm mb-4">
-          Create an account to track which techniques you&apos;ve mastered, save
-          sequences, and set your home studio.
+          Create an account to track which techniques you&apos;ve mastered and
+          save sequences.
         </p>
         <button className="px-6 py-2 bg-silk-600 text-white rounded-lg hover:bg-silk-500 transition-colors">
           Coming Soon
