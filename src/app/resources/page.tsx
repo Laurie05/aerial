@@ -48,6 +48,20 @@ export default function ResourcesPage() {
         </div>
       </section>
 
+      {/* Conditioning & Progressions */}
+      <section className="mb-10">
+        <h2 className="text-xl font-semibold text-gray-900 mb-4">
+          Conditioning & Progressions
+        </h2>
+        <div className="grid gap-4">
+          <ResourceCard
+            title="Bodyweight Fitness Progressions"
+            description="Community-built Google Sheet mapping out bodyweight fitness progressions with links for each skill. Copy it to track your own progress by shading completed exercises — great for building the strength foundation needed for aerial."
+            url="https://docs.google.com/spreadsheets/d/1a8tlZ-zbF695HA3Lmm20OIYeYYxo1lmUOczUXKLoL4s/edit?gid=1833143925#gid=1833143925"
+          />
+        </div>
+      </section>
+
       {/* Scoring & Technique Reference */}
       <section className="mb-10">
         <h2 className="text-xl font-semibold text-gray-900 mb-4">
