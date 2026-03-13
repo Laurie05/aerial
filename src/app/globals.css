@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-silk-50: #fdf2f8;
+  --color-silk-100: #fce7f3;
+  --color-silk-200: #fbcfe8;
+  --color-silk-300: #f9a8d4;
+  --color-silk-400: #f472b6;
+  --color-silk-500: #ec4899;
+  --color-silk-600: #db2777;
+  --color-silk-700: #be185d;
+  --color-silk-800: #9d174d;
+  --color-silk-900: #831843;
+  --color-silk-950: #500724;
+
+  --color-aerial-50: #faf5ff;
+  --color-aerial-100: #f3e8ff;
+  --color-aerial-200: #e9d5ff;
+  --color-aerial-300: #d8b4fe;
+  --color-aerial-400: #c084fc;
+  --color-aerial-500: #a855f7;
+  --color-aerial-600: #9333ea;
+  --color-aerial-700: #7e22ce;
+  --color-aerial-800: #6b21a8;
+  --color-aerial-900: #581c87;
+  --color-aerial-950: #3b0764;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ReactFlow overrides */
+.react-flow__node {
+  font-size: 12px;
+}
+
+.react-flow__attribution {
+  display: none;
+}
+
+/* ReactFlow light mode controls */
+.react-flow__controls button {
+  background: white !important;
+  border-color: #e5e7eb !important;
+  color: #6b7280 !important;
+}
+.react-flow__controls button:hover {
+  background: #f9fafb !important;
+}
+.react-flow__minimap {
+  background: #fafafa !important;
+  border-color: #e5e7eb !important;
+}
