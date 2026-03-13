@@ -62,6 +62,25 @@ export default function ResourcesPage() {
         </div>
       </section>
 
+      {/* Online Training & Community */}
+      <section className="mb-10">
+        <h2 className="text-xl font-semibold text-gray-900 mb-4">
+          Online Training & Community
+        </h2>
+        <div className="grid gap-4">
+          <ResourceCard
+            title="Silks Stars"
+            description="Virtual aerial silks membership platform by Brett Womack and Rachel Bowman. Offers monthly challenge combos, 25+ foundational tutorials, archived content, live Q&As, and a star-based progress system with coaching feedback. Geared toward intermediate to advanced aerialists."
+            url="https://www.silksstars.com/"
+          />
+          <ResourceCard
+            title="Aerial Physique"
+            description="Online learning platform offering virtual aerial classes and tutorials. Covers aerial fitness disciplines with on-demand video content for training at home or supplementing studio practice."
+            url="https://www.aerialphysique.tv/catalog"
+          />
+        </div>
+      </section>
+
       {/* Scoring & Technique Reference */}
       <section className="mb-10">
         <h2 className="text-xl font-semibold text-gray-900 mb-4">
