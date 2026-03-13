@@ -8,6 +8,20 @@ export const metadata: Metadata = {
   title: "Aerial Atlas",
   description:
     "Explore aerial techniques across silks, lyra, hammock, and rope. Progression maps, sequence builders, and studio finder.",
+  applicationName: "Aerial Atlas",
+  openGraph: {
+    title: "Aerial Atlas",
+    description:
+      "Explore aerial techniques across silks, lyra, hammock, and rope. Progression maps, sequence builders, and studio finder.",
+    siteName: "Aerial Atlas",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Aerial Atlas",
+    description:
+      "Explore aerial techniques across silks, lyra, hammock, and rope.",
+  },
 };
 
 export default function RootLayout({

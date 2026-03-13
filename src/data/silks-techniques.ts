@@ -19,7 +19,7 @@ export const silksTechniques: Technique[] = [
       "Lock the silk with the other foot on top",
       "Stand up tall, then re-reach",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_french_climb",
+    videoUrl: "https://www.youtube.com/watch?v=7MW5_rKzaXk",
   },
   {
     id: "russian-climb",
@@ -35,7 +35,7 @@ export const silksTechniques: Technique[] = [
       "Stand on the wrapped leg",
       "Reach high and repeat",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_russian_climb",
+    videoUrl: "https://www.youtube.com/watch?v=kSy9tB0pYpw",
   },
   {
     id: "bicycle-climb",
@@ -280,7 +280,7 @@ export const silksTechniques: Technique[] = [
       "Release hands slowly",
       "Arch back with arms extended",
     ],
-    videoUrl: "https://www.youtube.com/watch?v=REPLACE_catchers_wrap",
+    videoUrl: "https://www.youtube.com/watch?v=EHi8GS-n4gg",
   },
   {
     id: "hip-key",
