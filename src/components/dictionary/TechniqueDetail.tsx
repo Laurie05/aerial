@@ -54,15 +54,19 @@ export function TechniqueDetail({
   );
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4">
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/30 backdrop-blur-sm"
         onClick={onClose}
       />
 
-      {/* Modal */}
-      <div className="relative bg-white border border-purple-100 rounded-2xl max-w-lg w-full max-h-[80vh] overflow-y-auto p-6 shadow-xl">
+      {/* Modal — full-width bottom sheet on mobile, centered card on desktop */}
+      <div className="relative bg-white border border-purple-100 rounded-t-2xl sm:rounded-2xl w-full sm:max-w-lg max-h-[85vh] sm:max-h-[80vh] overflow-y-auto p-4 sm:p-6 shadow-xl">
+        {/* Drag handle for mobile */}
+        <div className="sm:hidden flex justify-center mb-2">
+          <div className="w-10 h-1 bg-gray-300 rounded-full" />
+        </div>
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10"

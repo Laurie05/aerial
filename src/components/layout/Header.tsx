@@ -27,12 +27,12 @@ export function Header() {
         </Link>
 
         {/* Apparatus toggle */}
-        <div className="flex items-center gap-1 bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-full p-1 shadow-sm">
+        <div className="flex items-center gap-0.5 sm:gap-1 bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-full p-0.5 sm:p-1 shadow-sm">
           {apparatusOptions.map((opt) => (
             <button
               key={opt.value}
               onClick={() => setApparatus(opt.value)}
-              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 flex items-center gap-1.5 ${
+              className={`px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-1.5 ${
                 apparatus === opt.value
                   ? "bg-gradient-to-r from-aerial-500 to-silk-500 text-white shadow-md scale-105"
                   : "text-gray-500 hover:text-gray-800 hover:bg-white/60"

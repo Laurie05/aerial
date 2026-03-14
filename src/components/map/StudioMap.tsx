@@ -198,6 +198,7 @@ export default function StudioMap() {
   const [typeFilter, setTypeFilter] = useState<string[]>([]);
   const [selectedStudio, setSelectedStudio] = useState<MapStudio | null>(null);
   const [showCuratedOnly, setShowCuratedOnly] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const filteredStudios = useMemo(() => {
     let result = showCuratedOnly
@@ -238,9 +239,33 @@ export default function StudioMap() {
   };
 
   return (
-    <div className="flex h-full">
+    <div className="flex h-full relative">
+      {/* Mobile sidebar toggle */}
+      <button
+        onClick={() => setSidebarOpen((v) => !v)}
+        className="sm:hidden absolute top-2 left-2 z-[1000] bg-white border border-purple-200 rounded-lg p-2 shadow-md"
+      >
+        <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          {sidebarOpen ? (
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          ) : (
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          )}
+        </svg>
+      </button>
+
+      {/* Mobile backdrop */}
+      {sidebarOpen && (
+        <div
+          className="sm:hidden fixed inset-0 bg-black/30 z-[999]"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <div className="w-[20%] shrink-0 border-r border-purple-100 bg-white overflow-y-auto">
+      <div className={`absolute sm:relative z-[1000] sm:z-auto h-full w-72 sm:w-[20%] shrink-0 border-r border-purple-100 bg-white overflow-y-auto transition-transform duration-200 ${
+        sidebarOpen ? "translate-x-0" : "-translate-x-full sm:translate-x-0"
+      }`}>
         <div className="p-3 border-b border-purple-100">
           <input
             type="text"
@@ -286,7 +311,7 @@ export default function StudioMap() {
           {filteredStudios.map((studio) => (
             <button
               key={studio.id}
-              onClick={() => setSelectedStudio(studio)}
+              onClick={() => { setSelectedStudio(studio); setSidebarOpen(false); }}
               className={`w-full text-left px-3 py-3 hover:bg-purple-50 transition-colors ${
                 selectedStudio?.id === studio.id ? "bg-purple-50" : ""
               }`}

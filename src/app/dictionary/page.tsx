@@ -89,13 +89,13 @@ export default function DictionaryPage() {
           placeholder="Search techniques..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full bg-white border border-purple-200 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-aerial-500 focus:ring-1 focus:ring-aerial-500 transition-colors shadow-sm"
+          className="w-full bg-white border border-purple-200 rounded-lg px-3 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:border-aerial-500 focus:ring-1 focus:ring-aerial-500 transition-colors shadow-sm"
         />
       </div>
 
       {/* Filters */}
-      <div className="mb-6 flex flex-wrap gap-4">
-        <div className="flex flex-wrap gap-2">
+      <div className="mb-6 flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2">
           <span className="text-xs text-gray-500 uppercase tracking-wide self-center mr-1">
             Category:
           </span>
@@ -113,7 +113,7 @@ export default function DictionaryPage() {
             </button>
           ))}
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2">
           <span className="text-xs text-gray-500 uppercase tracking-wide self-center mr-1">
             Level:
           </span>
@@ -131,7 +131,7 @@ export default function DictionaryPage() {
             </button>
           ))}
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2">
           <span className="text-xs text-gray-500 uppercase tracking-wide self-center mr-1">
             Style:
           </span>

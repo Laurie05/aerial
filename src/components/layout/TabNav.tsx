@@ -17,8 +17,8 @@ export function TabNav() {
 
   return (
     <nav className="border-b border-purple-100 bg-white/50">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex gap-1">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 overflow-x-auto">
+        <div className="flex gap-0 sm:gap-1">
           {tabs.map((tab) => {
             const isActive =
               pathname === tab.href || pathname.startsWith(tab.href + "/");
@@ -26,7 +26,7 @@ export function TabNav() {
               <Link
                 key={tab.href}
                 href={tab.href}
-                className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
+                className={`flex items-center gap-2 px-2.5 sm:px-4 py-3 text-sm font-medium border-b-2 transition-colors shrink-0 ${
                   isActive
                     ? "border-silk-500 text-silk-600"
                     : "border-transparent text-gray-500 hover:text-gray-700 hover:border-purple-300"

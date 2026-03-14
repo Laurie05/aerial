@@ -168,25 +168,25 @@ function ProgressionFlowInner() {
   return (
     <div className="w-full h-full relative">
       {/* Legend */}
-      <div className="absolute top-4 left-4 z-10 bg-white/90 border border-purple-100 rounded-lg p-3 backdrop-blur-sm shadow-sm">
-        <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wide">
+      <div className="absolute top-2 left-2 sm:top-4 sm:left-4 z-10 bg-white/90 border border-purple-100 rounded-lg p-2 sm:p-3 backdrop-blur-sm shadow-sm">
+        <p className="text-[10px] sm:text-xs text-gray-500 mb-1 sm:mb-2 font-medium uppercase tracking-wide">
           Difficulty
         </p>
-        <div className="flex flex-col gap-1">
+        <div className="flex sm:flex-col gap-2 sm:gap-1">
           {Object.entries(difficultyColor).map(([level, color]) => (
-            <div key={level} className="flex items-center gap-2">
+            <div key={level} className="flex items-center gap-1 sm:gap-2">
               <div
-                className="w-3 h-3 rounded-full"
+                className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full"
                 style={{ backgroundColor: color }}
               />
-              <span className="text-xs text-gray-600 capitalize">{level}</span>
+              <span className="text-[10px] sm:text-xs text-gray-600 capitalize">{level}</span>
             </div>
           ))}
         </div>
         {highlightId && (
           <button
             onClick={() => setHighlightId(null)}
-            className="mt-3 text-xs text-purple-600 hover:text-purple-800"
+            className="mt-2 sm:mt-3 text-[10px] sm:text-xs text-purple-600 hover:text-purple-800"
           >
             Clear highlight
           </button>
@@ -207,21 +207,25 @@ function ProgressionFlowInner() {
         style={{ background: "#fafafa" }}
       >
         <Background color="#ede9fe" gap={20} />
-        <Controls />
-        <MiniMap
+        <Controls className="!bottom-2 !left-2 sm:!bottom-4 sm:!left-4" />
+        <MiniMap className="hidden sm:block"
           nodeColor={(node) =>
             difficultyColor[(node.data?.difficulty as string)] ?? "#9ca3af"
           }
         />
       </ReactFlow>
 
-      {/* Technique detail side panel */}
+      {/* Technique detail panel — bottom sheet on mobile, side panel on desktop */}
       {selectedTechnique && (
-        <div className="absolute top-0 right-0 z-20 w-80 h-full bg-white border-l border-purple-100 shadow-lg overflow-y-auto">
-          <div className="p-4">
+        <div className="absolute inset-x-0 bottom-0 z-20 max-h-[60vh] sm:max-h-none sm:inset-x-auto sm:top-0 sm:right-0 sm:bottom-0 sm:w-80 bg-white border-t sm:border-t-0 sm:border-l border-purple-100 shadow-lg overflow-y-auto rounded-t-2xl sm:rounded-none">
+          {/* Drag handle for mobile */}
+          <div className="sm:hidden flex justify-center pt-2 pb-1">
+            <div className="w-10 h-1 bg-gray-300 rounded-full" />
+          </div>
+          <div className="p-4 pt-2 sm:pt-4">
             <button
               onClick={() => setHighlightId(null)}
-              className="absolute top-3 right-3 text-gray-400 hover:text-gray-600"
+              className="absolute top-3 right-3 sm:top-3 sm:right-3 text-gray-400 hover:text-gray-600"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
