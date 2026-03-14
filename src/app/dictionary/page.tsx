@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { techniques } from "@/data/techniques";
 import { searchTechniques } from "@/lib/search";
-import { Category, Difficulty, Technique } from "@/types";
+import { Category, Difficulty, Style, Technique } from "@/types";
 import { TechniqueCard } from "@/components/dictionary/TechniqueCard";
 import { TechniqueDetail } from "@/components/dictionary/TechniqueDetail";
 import { useApparatus } from "@/components/ApparatusContext";
@@ -23,6 +23,12 @@ const difficulties: Difficulty[] = [
   "advanced",
   "elite",
 ];
+const classifications: Style[] = [
+  "flexibility",
+  "strength",
+  "balance",
+  "dynamic",
+];
 
 export default function DictionaryPage() {
   const { apparatus } = useApparatus();
@@ -30,6 +36,9 @@ export default function DictionaryPage() {
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
   const [selectedDifficulties, setSelectedDifficulties] = useState<
     Difficulty[]
+  >([]);
+  const [selectedClassifications, setSelectedClassifications] = useState<
+    Style[]
   >([]);
   const [selectedTechnique, setSelectedTechnique] = useState<Technique | null>(
     null
@@ -40,14 +49,18 @@ export default function DictionaryPage() {
     [apparatus]
   );
 
-  const results = useMemo(
-    () =>
-      searchTechniques(filteredByApparatus, query, {
-        categories: selectedCategories,
-        difficulties: selectedDifficulties,
-      }),
-    [filteredByApparatus, query, selectedCategories, selectedDifficulties]
-  );
+  const results = useMemo(() => {
+    const searched = searchTechniques(filteredByApparatus, query, {
+      categories: selectedCategories,
+      difficulties: selectedDifficulties,
+    });
+    if (selectedClassifications.length === 0) return searched;
+    return searched.filter(
+      (t) =>
+        t.style &&
+        selectedClassifications.includes(t.style)
+    );
+  }, [filteredByApparatus, query, selectedCategories, selectedDifficulties, selectedClassifications]);
 
   const toggleCategory = (cat: Category) => {
     setSelectedCategories((prev) =>
@@ -58,6 +71,12 @@ export default function DictionaryPage() {
   const toggleDifficulty = (diff: Difficulty) => {
     setSelectedDifficulties((prev) =>
       prev.includes(diff) ? prev.filter((d) => d !== diff) : [...prev, diff]
+    );
+  };
+
+  const toggleClassification = (cls: Style) => {
+    setSelectedClassifications((prev) =>
+      prev.includes(cls) ? prev.filter((c) => c !== cls) : [...prev, cls]
     );
   };
 
@@ -109,6 +128,24 @@ export default function DictionaryPage() {
               }`}
             >
               {diff}
+            </button>
+          ))}
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <span className="text-xs text-gray-500 uppercase tracking-wide self-center mr-1">
+            Style:
+          </span>
+          {classifications.map((cls) => (
+            <button
+              key={cls}
+              onClick={() => toggleClassification(cls)}
+              className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                selectedClassifications.includes(cls)
+                  ? "bg-fuchsia-500 text-white"
+                  : "bg-fuchsia-50 text-gray-600 hover:text-gray-800 border border-fuchsia-200"
+              }`}
+            >
+              {cls}
             </button>
           ))}
         </div>

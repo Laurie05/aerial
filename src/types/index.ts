@@ -11,6 +11,12 @@ export type Category =
   | "transitions"
   | "entries";
 
+export type Style =
+  | "flexibility"
+  | "strength"
+  | "balance"
+  | "dynamic";
+
 export interface Technique {
   id: string;
   name: string;
@@ -22,6 +28,7 @@ export interface Technique {
   cues: string[];
   imageUrl?: string;
   videoUrl?: string;
+  style?: Style;
 }
 
 export interface ProgressionEdge {

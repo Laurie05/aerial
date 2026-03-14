@@ -37,6 +37,13 @@ const categoryColors: Record<string, string> = {
   entries: "text-amber-600",
 };
 
+const classificationColors: Record<string, string> = {
+  flexibility: "bg-orange-50 text-orange-600 border-orange-200",
+  strength: "bg-red-50 text-red-600 border-red-200",
+  balance: "bg-emerald-50 text-emerald-600 border-emerald-200",
+  dynamic: "bg-violet-50 text-violet-600 border-violet-200",
+};
+
 export function TechniqueCard({
   technique,
   onClick,
@@ -47,27 +54,31 @@ export function TechniqueCard({
   const thumbnail = technique.videoUrl
     ? getYouTubeThumbnail(technique.videoUrl)
     : null;
+  const hasVideo = !!thumbnail;
+  const previewImage = thumbnail || technique.imageUrl || null;
 
   return (
     <button
       onClick={onClick}
       className="bg-white border border-purple-100 rounded-xl overflow-hidden text-left hover:border-aerial-300 hover:shadow-md transition-all group shadow-sm"
     >
-      {thumbnail && (
-        <div className="relative w-full aspect-video bg-gray-100">
+      {previewImage && (
+        <div className={`relative w-full ${hasVideo ? "aspect-video" : "aspect-square"} bg-gray-50`}>
           <img
-            src={thumbnail}
+            src={previewImage}
             alt={`${technique.name} preview`}
-            className="w-full h-full object-cover"
+            className={`w-full h-full ${hasVideo ? "object-cover" : "object-contain p-2"}`}
             loading="lazy"
           />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-10 h-10 bg-black/60 rounded-full flex items-center justify-center">
-              <svg className="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
+          {hasVideo && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-10 h-10 bg-black/60 rounded-full flex items-center justify-center">
+                <svg className="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
       <div className="p-4">
@@ -81,11 +92,11 @@ export function TechniqueCard({
           {technique.difficulty}
         </span>
       </div>
-      <div className="flex items-center gap-2 mb-2">
+      <div className="flex items-center gap-2 mb-2 flex-wrap">
         <span
           className={`text-xs font-medium ${categoryColors[technique.category] ?? "text-gray-500"}`}
         >
-          {technique.category}
+          {technique.category}{technique.style ? `, ${technique.style}` : ""}
         </span>
         {technique.apparatus.length > 1 && (
           <span className="text-xs text-gray-400">

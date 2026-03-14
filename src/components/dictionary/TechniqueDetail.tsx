@@ -35,6 +35,13 @@ const difficultyColors = {
   elite: "text-purple-600",
 };
 
+const classificationColors: Record<string, string> = {
+  flexibility: "bg-orange-50 text-orange-700 border-orange-200",
+  strength: "bg-red-50 text-red-700 border-red-200",
+  balance: "bg-emerald-50 text-emerald-700 border-emerald-200",
+  dynamic: "bg-violet-50 text-violet-700 border-violet-200",
+};
+
 export function TechniqueDetail({
   technique,
   onClose,
@@ -100,6 +107,16 @@ export function TechniqueDetail({
           <span className="text-sm text-gray-500">
             {technique.apparatus.join(", ")}
           </span>
+          {technique.style && (
+            <>
+              <span className="text-sm text-gray-300">|</span>
+              <span
+                className={`text-xs px-2 py-0.5 rounded-full border font-medium ${classificationColors[technique.style]}`}
+              >
+                {technique.style}
+              </span>
+            </>
+          )}
         </div>
 
         <p className="text-gray-600 mb-6">{technique.description}</p>
@@ -119,6 +136,22 @@ export function TechniqueDetail({
                 </li>
               ))}
             </ol>
+          </div>
+        )}
+
+        {/* Illustration image */}
+        {technique.imageUrl && (
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-3">
+              Illustration
+            </h3>
+            <div className="flex justify-center bg-gray-50 rounded-lg border border-purple-100 p-4">
+              <img
+                src={technique.imageUrl}
+                alt={`${technique.name} illustration`}
+                className="max-h-64 object-contain"
+              />
+            </div>
           </div>
         )}
 
