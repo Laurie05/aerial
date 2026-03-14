@@ -109,7 +109,7 @@ export const lyraTechniques: Technique[] = [
     difficulty: "beginner",
     description: "A straddle hang on the lyra with legs fully extended to a 180-degree middle split.",
     cues: ["Grip the hoop and press legs to full 180-degree split", "Keep hips open and legs active"],
-    imageUrl: "/posa/hoop/ha002.png",
+    imageUrl: "/posa/hoop/ha001.png",
     style: "flexibility",
   },
   {

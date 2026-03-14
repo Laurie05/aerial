@@ -22,7 +22,31 @@ import { progressionEdges } from "@/data/progressions";
 import { getLayoutedElements, findAncestors } from "@/lib/graph";
 import { TechniqueNode } from "./TechniqueNode";
 import { useApparatus } from "@/components/ApparatusContext";
-import { Apparatus } from "@/types";
+import { Apparatus, Technique } from "@/types";
+
+function getYouTubeEmbedUrl(url: string): string | null {
+  try {
+    const u = new URL(url);
+    if (u.hostname.includes("youtube.com") && u.searchParams.get("v")) {
+      const id = u.searchParams.get("v")!;
+      if (id.startsWith("REPLACE_")) return null;
+      return `https://www.youtube.com/embed/${id}`;
+    }
+    if (u.hostname.includes("youtube.com") && u.pathname.startsWith("/shorts/")) {
+      const id = u.pathname.split("/shorts/")[1];
+      if (id.startsWith("REPLACE_")) return null;
+      return `https://www.youtube.com/embed/${id}`;
+    }
+    if (u.hostname === "youtu.be") {
+      const id = u.pathname.slice(1);
+      if (id.startsWith("REPLACE_")) return null;
+      return `https://www.youtube.com/embed/${id}`;
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
 
 const difficultyColor: Record<string, string> = {
   beginner: "#2dd4bf",
@@ -128,6 +152,15 @@ function ProgressionFlowInner() {
     });
   }, [layoutedNodes, layoutedEdges, fitView]);
 
+  const techMap = useMemo(
+    () => new Map(techniques.map((t) => [t.id, t])),
+    []
+  );
+
+  const selectedTechnique: Technique | null = highlightId
+    ? techMap.get(highlightId) ?? null
+    : null;
+
   const onNodeClick: NodeMouseHandler = useCallback((_event, node) => {
     setHighlightId((prev) => (prev === node.id ? null : node.id));
   }, []);
@@ -181,6 +214,117 @@ function ProgressionFlowInner() {
           }
         />
       </ReactFlow>
+
+      {/* Technique detail side panel */}
+      {selectedTechnique && (
+        <div className="absolute top-0 right-0 z-20 w-80 h-full bg-white border-l border-purple-100 shadow-lg overflow-y-auto">
+          <div className="p-4">
+            <button
+              onClick={() => setHighlightId(null)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-gray-600"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Image */}
+            {selectedTechnique.imageUrl && (
+              <div className="flex justify-center bg-gray-50 rounded-lg border border-purple-100 p-3 mb-4">
+                <img
+                  src={selectedTechnique.imageUrl}
+                  alt={`${selectedTechnique.name} illustration`}
+                  className="max-h-48 object-contain"
+                />
+              </div>
+            )}
+
+            <h3 className="text-lg font-bold text-gray-900 mb-1 pr-6">
+              {selectedTechnique.name}
+            </h3>
+
+            {selectedTechnique.aliases.length > 0 && (
+              <p className="text-xs text-gray-400 mb-3">
+                aka: {selectedTechnique.aliases.join(", ")}
+              </p>
+            )}
+
+            <div className="flex flex-wrap gap-2 mb-3">
+              <span className={`text-xs px-2 py-0.5 rounded-full border ${
+                {
+                  beginner: "bg-teal-50 text-teal-700 border-teal-200",
+                  intermediate: "bg-sky-50 text-sky-700 border-sky-200",
+                  advanced: "bg-indigo-50 text-indigo-700 border-indigo-200",
+                  elite: "bg-purple-50 text-purple-700 border-purple-200",
+                }[selectedTechnique.difficulty]
+              }`}>
+                {selectedTechnique.difficulty}
+              </span>
+              <span className="text-xs text-gray-500 capitalize">
+                {selectedTechnique.category}
+              </span>
+              {selectedTechnique.style && (
+                <span className="text-xs text-gray-500">
+                  {selectedTechnique.style}
+                </span>
+              )}
+            </div>
+
+            <p className="text-sm text-gray-600 mb-4">
+              {selectedTechnique.description}
+            </p>
+
+            {selectedTechnique.cues.length > 0 && (
+              <div className="mb-4">
+                <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">
+                  Teaching Cues
+                </h4>
+                <ol className="space-y-1.5">
+                  {selectedTechnique.cues.map((cue, i) => (
+                    <li key={i} className="flex gap-2 text-xs">
+                      <span className="text-aerial-500 font-bold shrink-0">{i + 1}.</span>
+                      <span className="text-gray-600">{cue}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+
+            {/* Video embed or search link */}
+            {selectedTechnique.videoUrl && getYouTubeEmbedUrl(selectedTechnique.videoUrl) ? (
+              <div className="mb-4">
+                <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">
+                  Video Tutorial
+                </h4>
+                <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-purple-100">
+                  <iframe
+                    src={getYouTubeEmbedUrl(selectedTechnique.videoUrl)!}
+                    title={`${selectedTechnique.name} tutorial`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="mb-4">
+                <a
+                  href={`https://www.youtube.com/results?search_query=${encodeURIComponent(`aerial ${selectedTechnique.name} tutorial`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-400 hover:text-aerial-600 transition-colors inline-flex items-center gap-1.5"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" />
+                    <path fill="#fff" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                  Search tutorials on YouTube
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
