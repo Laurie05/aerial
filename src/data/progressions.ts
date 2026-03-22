@@ -100,12 +100,69 @@ export const progressionEdges: ProgressionEdge[] = [
   { from: "figure-eight-single-footlock", to: "dancer-footlock" },
 
   // === HAMMOCK PROGRESSIONS ===
-  { from: "hammock-straddle", to: "hammock-outside-in-hook" },
-  { from: "hammock-straddle", to: "hammock-inside-out-hook" },
-  { from: "hammock-straddle", to: "hammock-both-fabric-hook" },
-  { from: "hammock-outside-in-hook", to: "hammock-diaper-wrap" },
-  { from: "hammock-both-fabric-hook", to: "hammock-diaper-wrap" },
-  { from: "hammock-straddle", to: "hammock-standing-sequence" },
+
+  // --- From Inverted Star ---
+  { from: "posa-ahc001-inverted-star", to: "posa-aha011-split-passe-160" },
+  { from: "posa-ahc001-inverted-star", to: "posa-aha002-inside-leg-hang" },
+  { from: "posa-ahc001-inverted-star", to: "posa-ahb003-inside-leg-hang" },
+  { from: "posa-ahc001-inverted-star", to: "posa-aha099-fang-backbend-closed" },
+  { from: "posa-ahc001-inverted-star", to: "posa-aha033-fang-backbend" },
+  { from: "posa-ahc001-inverted-star", to: "posa-ahc008-back-balance" },
+  { from: "posa-ahc001-inverted-star", to: "posa-ahc026-hip-balance-160" },
+  { from: "posa-ahc001-inverted-star", to: "posa-ahc051-hip-balance-180" },
+  { from: "posa-ahc001-inverted-star", to: "posa-ahc071-bilman-balance-180-split" },
+  { from: "posa-ahc001-inverted-star", to: "posa-aha035-arrow" },
+  { from: "posa-ahc001-inverted-star", to: "posa-aha089-arrow-extended" },
+
+  // --- Split Passé progression ---
+  { from: "posa-aha011-split-passe-160", to: "posa-aha026-split-passe-180" },
+
+  // --- Fang Backbend progression ---
+  { from: "posa-aha033-fang-backbend", to: "posa-aha099-fang-backbend-closed" },
+
+  // --- Hip Balance progression ---
+  { from: "posa-ahc026-hip-balance-160", to: "posa-ahc051-hip-balance-180" },
+
+  // --- From Inside Leg Hang (left + right) ---
+  { from: "posa-aha002-inside-leg-hang", to: "posa-aha008-dove-legs-extended" },
+  { from: "posa-aha002-inside-leg-hang", to: "posa-aha013-dove-with-tolerance" },
+  { from: "posa-aha002-inside-leg-hang", to: "posa-aha083-extreme-dove" },
+  { from: "posa-aha002-inside-leg-hang", to: "posa-aha015-mona-pass" },
+  { from: "posa-ahb003-inside-leg-hang", to: "posa-aha008-dove-legs-extended" },
+  { from: "posa-ahb003-inside-leg-hang", to: "posa-aha013-dove-with-tolerance" },
+  { from: "posa-ahb003-inside-leg-hang", to: "posa-aha083-extreme-dove" },
+  { from: "posa-ahb003-inside-leg-hang", to: "posa-aha015-mona-pass" },
+
+  // --- Dove family progression ---
+  { from: "posa-aha008-dove-legs-extended", to: "posa-aha013-dove-with-tolerance" },
+  { from: "posa-aha013-dove-with-tolerance", to: "posa-aha083-extreme-dove" },
+
+  // --- Mona Passé progression ---
+  { from: "posa-aha015-mona-pass", to: "posa-aha036-mona-passe-extended" },
+
+  // --- From Dove ---
+  { from: "posa-aha008-dove-legs-extended", to: "posa-ahd011-rolling-1-turn" },
+  { from: "posa-aha008-dove-legs-extended", to: "posa-aha035-arrow" },
+  { from: "posa-aha008-dove-legs-extended", to: "posa-ahd001-alexis-basket" },
+  { from: "posa-aha008-dove-legs-extended", to: "posa-ahd003-basic-hammock-balance-to-inside-leg-hang" },
+  { from: "posa-aha008-dove-legs-extended", to: "posa-ahd004-alexis-angel" },
+  { from: "posa-aha008-dove-legs-extended", to: "posa-ahd005-firefly-drop" },
+  { from: "posa-aha008-dove-legs-extended", to: "posa-ahd009-angel-drop-1-to-knee-hang" },
+  { from: "posa-aha008-dove-legs-extended", to: "posa-ahd023-high-angel-drop-1" },
+  { from: "posa-aha008-dove-legs-extended", to: "posa-ahd027-high-angel-drop-2" },
+
+  // --- Rolling progression ---
+  { from: "posa-ahd011-rolling-1-turn", to: "posa-ahd020-rolling-2-turns" },
+
+  // --- Arrow progression ---
+  { from: "posa-aha035-arrow", to: "posa-aha089-arrow-extended" },
+
+  // --- Angel Drop family ---
+  { from: "posa-ahd009-angel-drop-1-to-knee-hang", to: "posa-ahd023-high-angel-drop-1" },
+  { from: "posa-ahd023-high-angel-drop-1", to: "posa-ahd027-high-angel-drop-2" },
+
+  // --- Basic Hammock Balance to Inside Leg Hang ---
+  { from: "posa-ahd003-basic-hammock-balance-to-inside-leg-hang", to: "posa-aha002-inside-leg-hang" },
 
   // === LYRA PROGRESSIONS ===
   { from: "inversion", to: "lyra-peter-pan" },
