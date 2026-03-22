@@ -103,14 +103,58 @@ export const sequenceEdges: SequenceEdge[] = [
   { from: "wheel-down", to: "french-climb", notes: "Back to the top" },
 
   // === HAMMOCK SEQUENCES ===
-  { from: "hammock-straddle", to: "hammock-outside-in-hook" },
-  { from: "hammock-straddle", to: "hammock-inside-out-hook" },
-  { from: "hammock-straddle", to: "hammock-both-fabric-hook" },
-  { from: "hammock-outside-in-hook", to: "hammock-diaper-wrap" },
-  { from: "hammock-both-fabric-hook", to: "hammock-diaper-wrap" },
-  { from: "hammock-diaper-wrap", to: "hammock-both-fabric-hook", notes: "Lean to side, hook both fabric" },
-  { from: "hammock-straddle", to: "hammock-standing-sequence" },
-  { from: "hammock-standing-sequence", to: "hammock-straddle" },
+
+  // Inverted Star → flexibility poses
+  { from: "posa-ahc001-inverted-star", to: "posa-aha002-inside-leg-hang", notes: "Hook leg" },
+  { from: "posa-ahc001-inverted-star", to: "posa-ahb003-inside-leg-hang" },
+  { from: "posa-ahc001-inverted-star", to: "posa-aha011-split-passe-160" },
+  { from: "posa-ahc001-inverted-star", to: "posa-ahc008-back-balance" },
+  { from: "posa-ahc001-inverted-star", to: "posa-ahc026-hip-balance-160" },
+  { from: "posa-ahc001-inverted-star", to: "posa-aha033-fang-backbend" },
+  { from: "posa-ahc001-inverted-star", to: "posa-aha035-arrow" },
+
+  // Split Passé flow
+  { from: "posa-aha011-split-passe-160", to: "posa-aha026-split-passe-180" },
+
+  // Fang Backbend flow
+  { from: "posa-aha033-fang-backbend", to: "posa-aha099-fang-backbend-closed" },
+
+  // Hip/Back Balance flow
+  { from: "posa-ahc026-hip-balance-160", to: "posa-ahc051-hip-balance-180" },
+
+  // Inside Leg Hang → Dove family
+  { from: "posa-aha002-inside-leg-hang", to: "posa-aha008-dove-legs-extended", notes: "Extend into dove" },
+  { from: "posa-aha002-inside-leg-hang", to: "posa-aha015-mona-pass" },
+  { from: "posa-ahb003-inside-leg-hang", to: "posa-aha008-dove-legs-extended" },
+  { from: "posa-ahb003-inside-leg-hang", to: "posa-aha015-mona-pass" },
+
+  // Dove family progressions
+  { from: "posa-aha008-dove-legs-extended", to: "posa-aha013-dove-with-tolerance" },
+  { from: "posa-aha013-dove-with-tolerance", to: "posa-aha083-extreme-dove" },
+
+  // Mona Passé flow
+  { from: "posa-aha015-mona-pass", to: "posa-aha036-mona-passe-extended" },
+
+  // Dove → dynamic elements
+  { from: "posa-aha008-dove-legs-extended", to: "posa-ahd011-rolling-1-turn", notes: "Roll out" },
+  { from: "posa-aha008-dove-legs-extended", to: "posa-aha035-arrow", oneWay: true },
+  { from: "posa-aha008-dove-legs-extended", to: "posa-ahd001-alexis-basket" },
+  { from: "posa-aha008-dove-legs-extended", to: "posa-ahd004-alexis-angel" },
+  { from: "posa-aha008-dove-legs-extended", to: "posa-ahd005-firefly-drop" },
+  { from: "posa-aha008-dove-legs-extended", to: "posa-ahd009-angel-drop-1-to-knee-hang" },
+
+  // Rolling flow
+  { from: "posa-ahd011-rolling-1-turn", to: "posa-ahd020-rolling-2-turns" },
+
+  // Arrow flow
+  { from: "posa-aha035-arrow", to: "posa-aha089-arrow-extended" },
+
+  // Angel Drop family
+  { from: "posa-ahd009-angel-drop-1-to-knee-hang", to: "posa-ahd023-high-angel-drop-1" },
+  { from: "posa-ahd023-high-angel-drop-1", to: "posa-ahd027-high-angel-drop-2" },
+
+  // Dynamic connections
+  { from: "posa-ahd003-basic-hammock-balance-to-inside-leg-hang", to: "posa-aha002-inside-leg-hang" },
 
   // === LYRA SEQUENCES ===
   { from: "lyra-peter-pan", to: "lyra-gazelle" },
@@ -180,10 +224,21 @@ export const exampleSequences = [
     id: "hammock-flow",
     name: "Hammock Flow",
     techniqueIds: [
-      "hammock-straddle",
-      "hammock-outside-in-hook",
-      "hammock-diaper-wrap",
-      "hammock-both-fabric-hook",
+      "posa-ahc001-inverted-star",
+      "posa-aha002-inside-leg-hang",
+      "posa-aha008-dove-legs-extended",
+      "posa-ahd011-rolling-1-turn",
+    ],
+  },
+  {
+    id: "hammock-dove-drops",
+    name: "Hammock: Dove to Angel Drops",
+    techniqueIds: [
+      "posa-ahc001-inverted-star",
+      "posa-aha002-inside-leg-hang",
+      "posa-aha008-dove-legs-extended",
+      "posa-ahd009-angel-drop-1-to-knee-hang",
+      "posa-ahd023-high-angel-drop-1",
     ],
   },
 ];

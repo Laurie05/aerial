@@ -95,6 +95,13 @@ function buildFlowElements(
       : true;
     const isOutgoing = highlightId ? e.from === highlightId : false;
     const isIncoming = highlightId ? e.to === highlightId : false;
+    const edgeColor = isOutgoing
+      ? "#7c3aed"
+      : isIncoming
+      ? "#8b5cf6"
+      : isHighlighted
+      ? "#c4b5fd"
+      : "#e9e5f5";
     return {
       id: `se-${i}`,
       source: e.from,
@@ -103,14 +110,10 @@ function buildFlowElements(
       label: e.notes,
       labelStyle: { fill: "#6b7280", fontSize: 10 },
       labelBgStyle: { fill: "#ffffff", fillOpacity: 0.9 },
+      markerStart: e.oneWay ? undefined : { type: "arrowclosed" as const, color: edgeColor, width: 14, height: 14 },
+      markerEnd: { type: "arrowclosed" as const, color: edgeColor, width: 14, height: 14 },
       style: {
-        stroke: isOutgoing
-          ? "#7c3aed"
-          : isIncoming
-          ? "#8b5cf6"
-          : isHighlighted
-          ? "#c4b5fd"
-          : "#e9e5f5",
+        stroke: edgeColor,
         strokeWidth: isHighlighted ? 2 : 1,
         opacity: isHighlighted ? 1 : 0.2,
       },

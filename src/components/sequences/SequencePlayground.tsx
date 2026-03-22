@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { techniques } from "@/data/techniques";
 import { sequenceEdges, exampleSequences } from "@/data/sequences";
 import { useApparatus } from "@/components/ApparatusContext";
@@ -18,6 +18,10 @@ export function SequencePlayground() {
   const { apparatus } = useApparatus();
   const [sequence, setSequence] = useState<string[]>([]);
   const [sequenceName, setSequenceName] = useState("");
+  const [moveSearch, setMoveSearch] = useState("");
+  const [dragIndex, setDragIndex] = useState<number | null>(null);
+  const [dropTarget, setDropTarget] = useState<number | null>(null);
+  const dragRef = useRef<number | null>(null);
   const [savedSequences, setSavedSequences] = useState(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("aerial-sequences");
@@ -51,8 +55,8 @@ export function SequencePlayground() {
     }
     const lastId = sequence[sequence.length - 1];
     const nextIds = filteredEdges
-      .filter((e) => e.from === lastId)
-      .map((e) => e.to);
+      .filter((e) => e.from === lastId || (!e.oneWay && e.to === lastId))
+      .map((e) => (e.from === lastId ? e.to : e.from));
     return apparatusTechniques.filter((t) => nextIds.includes(t.id));
   }, [sequence, apparatusTechniques, filteredEdges]);
 
@@ -113,7 +117,7 @@ export function SequencePlayground() {
                 const tech = techMap.get(id);
                 if (!tech) return null;
                 return (
-                  <div key={`${id}-${i}`} className="flex items-center gap-2">
+                  <div key={`${id}-${i}`} className="flex items-center gap-1">
                     {i > 0 && (
                       <svg
                         className="w-4 h-4 text-purple-500 shrink-0"
@@ -129,13 +133,49 @@ export function SequencePlayground() {
                         />
                       </svg>
                     )}
-                    <span
-                      className={`px-3 py-1.5 rounded-lg border text-sm font-medium text-gray-800 ${
+                    <div
+                      className={`group relative flex items-center gap-1 px-3 py-1.5 rounded-lg border text-sm font-medium text-gray-800 cursor-grab active:cursor-grabbing select-none ${
                         difficultyColors[tech.difficulty]
-                      }`}
+                      } ${dropTarget === i ? "ring-2 ring-purple-500" : ""} ${dragIndex === i ? "opacity-50" : ""}`}
+                      draggable
+                      onDragStart={() => {
+                        setDragIndex(i);
+                        dragRef.current = i;
+                      }}
+                      onDragOver={(e) => {
+                        e.preventDefault();
+                        setDropTarget(i);
+                      }}
+                      onDragLeave={() => setDropTarget(null)}
+                      onDrop={(e) => {
+                        e.preventDefault();
+                        const from = dragRef.current;
+                        if (from !== null && from !== i) {
+                          setSequence((prev) => {
+                            const next = [...prev];
+                            const [item] = next.splice(from, 1);
+                            next.splice(i, 0, item);
+                            return next;
+                          });
+                        }
+                        setDragIndex(null);
+                        setDropTarget(null);
+                        dragRef.current = null;
+                      }}
+                      onDragEnd={() => {
+                        setDragIndex(null);
+                        setDropTarget(null);
+                        dragRef.current = null;
+                      }}
                     >
                       {tech.name}
-                    </span>
+                      <button
+                        onClick={() => setSequence((prev) => prev.filter((_, j) => j !== i))}
+                        className="ml-1 text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        ×
+                      </button>
+                    </div>
                   </div>
                 );
               })}
@@ -181,14 +221,22 @@ export function SequencePlayground() {
           {sequence.length === 0 ? "Pick a starting technique" : "Available next moves"}
         </h3>
 
-        {validNextMoves.length === 0 ? (
+        <input
+          type="text"
+          placeholder="Search techniques..."
+          value={moveSearch}
+          onChange={(e) => setMoveSearch(e.target.value)}
+          className="w-full mb-3 bg-white border border-purple-200 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-aerial-500 focus:ring-1 focus:ring-aerial-500 transition-colors shadow-sm"
+        />
+
+        {validNextMoves.filter((t) => !moveSearch.trim() || t.name.toLowerCase().includes(moveSearch.toLowerCase()) || t.aliases.some((a) => a.toLowerCase().includes(moveSearch.toLowerCase()))).length === 0 ? (
           <p className="text-gray-400 text-sm">
             No valid next moves from this position. Try undoing or starting
             fresh!
           </p>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 pb-6">
-            {validNextMoves.map((tech) => (
+            {validNextMoves.filter((t) => !moveSearch.trim() || t.name.toLowerCase().includes(moveSearch.toLowerCase()) || t.aliases.some((a) => a.toLowerCase().includes(moveSearch.toLowerCase()))).map((tech) => (
               <button
                 key={tech.id}
                 onClick={() => addToSequence(tech.id)}

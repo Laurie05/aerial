@@ -40,6 +40,7 @@ export interface SequenceEdge {
   from: string;
   to: string;
   notes?: string;
+  oneWay?: boolean;
 }
 
 export interface Studio {
